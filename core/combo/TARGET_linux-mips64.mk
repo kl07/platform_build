@@ -92,6 +92,7 @@ TARGET_GLOBAL_CFLAGS += \
 			-fstack-protector-strong \
 			-Wa,--noexecstack \
 			-Werror=format-security \
+			-Wvla -Wno-error=vla \
 			-D_FORTIFY_SOURCE=2 \
 			-no-canonical-prefixes \
 			-fno-canonical-system-headers \

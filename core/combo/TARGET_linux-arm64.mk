@@ -81,6 +81,7 @@ TARGET_GLOBAL_CFLAGS += \
 			-funwind-tables \
 			-Wa,--noexecstack \
 			-Werror=format-security \
+			-Wvla -Wno-error=vla \
 			-D_FORTIFY_SOURCE=2 \
 			-fno-short-enums \
 			-no-canonical-prefixes \
