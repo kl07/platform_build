@@ -61,6 +61,7 @@ PRODUCT_PACKAGES += \
     chromium \
     F-Droid \
     PdfViewer \
-    privacy-friendly-netmonitor
+    privacy-friendly-netmonitor \
+    FDroidPrivilegedExtension
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_base.mk)
