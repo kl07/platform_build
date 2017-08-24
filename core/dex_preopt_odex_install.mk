@@ -152,16 +152,7 @@ LOCAL_DEX_PREOPT_FLAGS := $(PRODUCT_DEX_PREOPT_DEFAULT_FLAGS)
 endif
 endif
 
-ifneq (,$(filter $(PRODUCT_SYSTEM_SERVER_JARS) $(PRODUCT_DEXPREOPT_SPEED_APPS) $(PRODUCT_SYSTEM_SERVER_APPS),$(LOCAL_MODULE)))
-  # Jars of system server, apps loaded into system server, and apps the product wants to be
-  # compiled with the 'speed' compiler filter.
-  LOCAL_DEX_PREOPT_FLAGS += --compiler-filter=speed
-else
-  # If no compiler filter is specified, default to 'quicken' to save on storage.
-  ifeq (,$(filter --compiler-filter=%, $(LOCAL_DEX_PREOPT_FLAGS)))
-    LOCAL_DEX_PREOPT_FLAGS += --compiler-filter=quicken
-  endif
-endif
+LOCAL_DEX_PREOPT_FLAGS += --compiler-filter=speed
 
 $(built_odex): PRIVATE_DEX_PREOPT_FLAGS := $(LOCAL_DEX_PREOPT_FLAGS)
 $(built_vdex): $(built_odex)
