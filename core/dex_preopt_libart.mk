@@ -103,11 +103,6 @@ endif
 ########################################################################
 # For a single jar or APK
 
-ABORT_ON_HARD_VERIFIER_ERROR :=
-ifneq ($(BOARD_HAS_ART_VERIFIER_ERRORS),true)
-  ABORT_ON_HARD_VERIFIER_ERROR := --abort-on-hard-verifier-error
-endif
-
 # $(1): the input .jar or .apk file
 # $(2): the output .odex file
 define dex2oat-one-file
@@ -126,7 +121,7 @@ $(hide) ANDROID_LOG_TAGS="*:e" $(DEX2OAT) \
 	--instruction-set-features=$($(PRIVATE_2ND_ARCH_VAR_PREFIX)DEX2OAT_TARGET_INSTRUCTION_SET_FEATURES) \
 	--runtime-arg -Xnorelocate --compile-pic \
 	--no-generate-debug-info --generate-build-id \
-	$(ABORT_ON_HARD_VERIFIER_ERROR) \
+	--abort-on-hard-verifier-error \
 	--force-determinism \
 	--no-inline-from=core-oj.jar \
 	$(PRIVATE_DEX_PREOPT_FLAGS) \
