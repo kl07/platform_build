@@ -240,11 +240,11 @@ ifneq ($(my_sanitize_diag),)
   endif
 endif
 
-ifndef LOCAL_IS_HOST_MODULE
-  ifeq ($(my_clang),true)
-    my_cflags += -fsanitize=local-init
-  endif
-endif
+#ifndef LOCAL_IS_HOST_MODULE
+  #ifeq ($(my_clang),true)
+    #my_cflags += -fsanitize=local-init
+  #endif
+#endif
 
 ifeq ($(filter undefined,$(my_sanitize)),)
   ifeq ($(filter integer,$(my_sanitize)),)
